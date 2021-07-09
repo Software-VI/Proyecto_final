@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity4_add_user"
+    android:background="#E8040A27"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_margin="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_add_user"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:text="Agregar Usuario"
+                android:textSize="25dp"
+                android:textColor="@color/white"
+                />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_cod_unidad"
+                app:layout_constraintTop_toBottomOf="@id/text_add_user"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="30dp"
+                android:hint="Codigo de unidad"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:width="200dp"
+                android:inputType="text"
+                android:maxLength="20"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_username"
+                app:layout_constraintTop_toBottomOf="@id/edt_cod_unidad"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="10dp"
+                android:hint="Username"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:width="200dp"
+                android:inputType="text"
+                android:maxLength="20"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_nombre"
+                app:layout_constraintTop_toBottomOf="@id/edt_username"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="10dp"
+                android:hint="Nombre"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:width="200dp"
+                android:inputType="text"
+                android:maxLength="20"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_apellido"
+                app:layout_constraintTop_toBottomOf="@id/edt_nombre"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="10dp"
+                android:hint="Apellido"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:width="200dp"
+                android:inputType="text"
+                android:maxLength="20"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_contrasena"
+                app:layout_constraintTop_toBottomOf="@id/edt_apellido"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="10dp"
+                android:hint="Contrase;a"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:width="200dp"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_email"
+                app:layout_constraintTop_toBottomOf="@id/edt_contrasena"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="10dp"
+                android:hint="Email"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:width="200dp"
+                android:inputType="textEmailAddress"
+                android:maxLength="20"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_telefono"
+                app:layout_constraintTop_toBottomOf="@id/edt_email"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="10dp"
+                android:hint="Telefono"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:width="200dp"
+                android:inputType="text"
+                android:maxLength="20"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_rango"
+                app:layout_constraintTop_toBottomOf="@id/edt_telefono"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="10dp"
+                android:hint="Rango"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:width="200dp"
+                android:inputType="text"
+                android:maxLength="20"
+                />
+
+            <Button
+                android:id="@+id/btn_add_usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#2E4A8A"
+                android:onClick="Registrar"
+                android:text="agregar usuario"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edt_rango" />
+
+            <Button
+                android:id="@+id/btn_buscar_usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#2E4A8A"
+                android:text="consultar usuario"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_add_usuario"
+                android:onClick="Consultar"/>
+
+            <Button
+                android:onClick="Editar"
+                android:id="@+id/btn_modificar_usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#2E4A8A"
+                android:text="editar usuario"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_buscar_usuario" />
+
+            <Button
+                android:onClick="ELiminar"
+                android:id="@+id/btn_eliminar_usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#2E4A8A"
+                android:text="Eliminar usuario"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_modificar_usuario"
+                  />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/btn_eliminar_usuario"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="20dp"
+                android:id="@+id/btn_volver_from_cruduser"
+                android:backgroundTint="#E63333"
+                android:text="salir"
+                android:textColor="#FFFFFF"
+                android:padding="10dp"
+                android:width="150dp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

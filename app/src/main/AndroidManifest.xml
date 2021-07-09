@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.proyecto_final">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Proyecto_final">
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+        >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity4_add_reporte"/>
+        <activity android:name=".MainActivity4_add_ciudadano" />
+        <activity android:name=".MainActivity4_add_tipo_reporte" />
+        <activity
+            android:name=".MainActivity4_add_user"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity3_consulta_usuario"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            />
+        <activity android:name=".MainActivity3_mantenimiento_usuario" />
+        <activity android:name=".MainActivity3_menu_admin" />
+        <activity android:name=".MainActivity2_menu_usuario" />
+        <activity
+            android:name=".MainActivity2_logadmin"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            />
+    </application>
+
+</manifest>

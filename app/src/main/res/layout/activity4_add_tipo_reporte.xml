@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity4_add_tipo_reporte"
+    android:background="#E8040A27"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_margin="30dp">
+
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_add_tipo_reporte"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="Agregar Tipo De Reporte"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_add_tipo_reporte_codreporte"
+                app:layout_constraintTop_toBottomOf="@id/text_add_tipo_reporte"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="30dp"
+                android:hint="Codigo de Reporte"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:width="200dp"
+                android:inputType="text"
+                android:maxLength="20"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_add_tipo_reporte_descripcion"
+                app:layout_constraintTop_toBottomOf="@id/edt_add_tipo_reporte_codreporte"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="30dp"
+                android:hint="Descripcion de Reporte"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:width="250dp"
+                android:minHeight="200dp"
+                android:inputType="text"
+                android:maxLength="60"
+                />
+
+            <Button
+                android:id="@+id/btn_add_tipo_reporte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#2E4A8A"
+                android:onClick="Registrar_reporte"
+                android:text="agregar reporte"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edt_add_tipo_reporte_descripcion"
+                />
+
+            <Button
+                android:id="@+id/btn_consultar_tipo_reporte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#2E4A8A"
+                android:onClick="Consultar"
+                android:text="consultar reporte"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_add_tipo_reporte" />
+
+            <Button
+                android:id="@+id/btn_editar_tipo_reporte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#2E4A8A"
+                android:onClick="Editar"
+                android:text="editar reporte"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_consultar_tipo_reporte" />
+
+            <Button
+                android:id="@+id/btn_eliminar_tipo_reporte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#2E4A8A"
+                android:onClick="Eliminar"
+                android:text="eliminar reporte"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_editar_tipo_reporte" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/btn_eliminar_tipo_reporte"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="20dp"
+                android:id="@+id/btn_salir_from_add_tipo_reporte"
+                android:backgroundTint="#E63333"
+                android:text="salir"
+                android:textColor="#FFFFFF"
+                android:padding="10dp"
+                android:width="150dp"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
