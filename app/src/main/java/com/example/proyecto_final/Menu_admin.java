@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity3_menu_admin extends AppCompatActivity {
+public class Menu_admin extends AppCompatActivity {
 
     Button btn_salir_admin, btn_add_tipo_reporte, btn_consulta;
 
@@ -23,7 +23,7 @@ public class MainActivity3_menu_admin extends AppCompatActivity {
         btn_salir_admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intento_logout_admin = new Intent(MainActivity3_menu_admin.this, MainActivity2_logadmin.class);
+                Intent intento_logout_admin = new Intent(Menu_admin.this, Logadmin.class);
                 startActivity(intento_logout_admin);
             }
         });
@@ -32,7 +32,7 @@ public class MainActivity3_menu_admin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    Intent intent_consulta = new Intent(MainActivity3_menu_admin.this, MainActivity4_add_user.class);
+                    Intent intent_consulta = new Intent(Menu_admin.this, Add_user.class);
                     startActivity(intent_consulta);
 
                 }
@@ -42,7 +42,7 @@ public class MainActivity3_menu_admin extends AppCompatActivity {
         btn_add_tipo_reporte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_add_tipo_reporte = new Intent(MainActivity3_menu_admin.this, MainActivity4_add_tipo_reporte.class);
+                Intent intent_add_tipo_reporte = new Intent(Menu_admin.this, Add_tipo_reporte.class);
                 startActivity(intent_add_tipo_reporte);
 
             }

@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity4_add_ciudadano extends AppCompatActivity {
+public class Add_ciudadano extends AppCompatActivity {
 
     private EditText et_cedula, et_nombre, et_apellido, et_direccion;
 

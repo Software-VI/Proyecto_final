@@ -19,7 +19,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -64,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         btn_to_admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intento_to_admin = new Intent(MainActivity.this, MainActivity2_logadmin.class);
+                Intent intento_to_admin = new Intent(MainActivity.this, Logadmin.class);
                 startActivity(intento_to_admin);
 
             }
@@ -88,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
                     if (success.equals("1")){
                         Toast.makeText(MainActivity.this, "¡Inicio de sesión extioso!", Toast.LENGTH_SHORT).show();
-                        Intent login = new Intent(MainActivity.this, MainActivity2_menu_usuario.class);
+                        Intent login = new Intent(MainActivity.this, Menu_usuario.class);
                         startActivity(login);
 
                     }else {

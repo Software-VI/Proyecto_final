@@ -7,8 +7,9 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity3_consulta_usuario extends AppCompatActivity {
+public class Consulta_usuario extends AppCompatActivity {
      Button btn_backto_consulta;
+     Button btn_consultar;
 
 
     @Override
@@ -17,14 +18,20 @@ public class MainActivity3_consulta_usuario extends AppCompatActivity {
         setContentView(R.layout.activity3_consulta_usuario);
 
         btn_backto_consulta = findViewById(R.id.btn_volver_consulta);
+        btn_consultar = (Button)findViewById(R.id.btn_consulta_caso_ciudadano);
 
         btn_backto_consulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_volverto_consulta = new Intent(MainActivity3_consulta_usuario.this, MainActivity2_menu_usuario.class);
+                Intent intent_volverto_consulta = new Intent(Consulta_usuario.this, Menu_usuario.class);
                 startActivity(intent_volverto_consulta);
             }
         });
+        btn_consultar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
     }
 }

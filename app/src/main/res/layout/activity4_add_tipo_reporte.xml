@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity4_add_tipo_reporte"
+    tools:context=".Add_tipo_reporte"
     android:background="#E8040A27"
     android:fillViewport="true">
 

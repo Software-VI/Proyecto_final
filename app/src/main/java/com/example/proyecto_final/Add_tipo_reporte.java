@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity4_add_tipo_reporte extends AppCompatActivity {
+public class Add_tipo_reporte extends AppCompatActivity {
 
     private EditText et_cod_reporte, et_descripcion;
     Button btn_add, btn_volver;
