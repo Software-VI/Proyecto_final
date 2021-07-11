@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity2_menu_usuario extends AppCompatActivity {
+public class Menu_usuario extends AppCompatActivity {
     Button btn_mantenimiento, btn_consulta, btn_logout_usuario;
 
 
@@ -23,7 +23,7 @@ public class MainActivity2_menu_usuario extends AppCompatActivity {
         btn_mantenimiento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intento_mantt_user  = new Intent(MainActivity2_menu_usuario.this, MainActivity3_mantenimiento_usuario.class);
+                Intent intento_mantt_user  = new Intent(Menu_usuario.this, Mantenimiento_usuario.class);
                 startActivity(intento_mantt_user);
             }
         });
@@ -31,7 +31,7 @@ public class MainActivity2_menu_usuario extends AppCompatActivity {
         btn_logout_usuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_logout = new Intent(MainActivity2_menu_usuario.this, MainActivity.class);
+                Intent intent_logout = new Intent(Menu_usuario.this, MainActivity.class);
                 startActivity(intent_logout);
             }
         });
@@ -39,7 +39,7 @@ public class MainActivity2_menu_usuario extends AppCompatActivity {
         btn_consulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_consulta = new Intent(MainActivity2_menu_usuario.this, MainActivity3_consulta_usuario.class);
+                Intent intent_consulta = new Intent(Menu_usuario.this, Consulta_usuario.class);
                 startActivity(intent_consulta);
             }
         });

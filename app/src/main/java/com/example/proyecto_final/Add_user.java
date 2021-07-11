@@ -18,7 +18,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONObject;
 
 
-public class MainActivity4_add_user extends AppCompatActivity {
+public class Add_user extends AppCompatActivity {
 
     private EditText et_cod_unidad, et_username, et_nombre, et_apellido, et_password, et_email, et_telefono, et_rango;
     Button btn_add, btn_delete, btn_consultar, btn_update;
@@ -69,7 +69,7 @@ public class MainActivity4_add_user extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 progreso.hide();
-                Toast.makeText(MainActivity4_add_user.this, "Usuario Resgistrado Correctamente", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Add_user.this, "Usuario Resgistrado Correctamente", Toast.LENGTH_SHORT).show();
                 et_cod_unidad.setText("");
                 et_username.setText("");
                 et_nombre.setText("");
@@ -83,7 +83,7 @@ public class MainActivity4_add_user extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progreso.hide();
-                Toast.makeText(MainActivity4_add_user.this, "¡Error al registrar usuario!"+error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Add_user.this, "¡Error al registrar usuario!"+error.toString(), Toast.LENGTH_SHORT).show();
                 Log.i("ERROR",error.toString());
             }
         });

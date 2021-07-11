@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity4_add_reporte extends AppCompatActivity {
+public class Add_reporte extends AppCompatActivity {
 
     private EditText et_id_reporte, et_cedula, et_fecha, et_tipo_reporte, et_observacion, et_activo;
 

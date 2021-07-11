@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity3_mantenimiento_usuario extends AppCompatActivity {
+public class Mantenimiento_usuario extends AppCompatActivity {
 
     Button btn_volver_mantenimiento_usuario, btn_add_ciudadano, btn_menu_reporte;
 
@@ -23,7 +23,7 @@ public class MainActivity3_mantenimiento_usuario extends AppCompatActivity {
         btn_add_ciudadano.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intento_add_ciudadano = new Intent(MainActivity3_mantenimiento_usuario.this, MainActivity4_add_ciudadano.class);
+                Intent intento_add_ciudadano = new Intent(Mantenimiento_usuario.this, Add_ciudadano.class);
                 startActivity(intento_add_ciudadano);
             }
         });
@@ -32,7 +32,7 @@ public class MainActivity3_mantenimiento_usuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intento_logout_admin = new Intent(MainActivity3_mantenimiento_usuario.this, MainActivity2_menu_usuario.class);
+                Intent intento_logout_admin = new Intent(Mantenimiento_usuario.this, Menu_usuario.class);
                 startActivity(intento_logout_admin);
             }
         });
@@ -40,7 +40,7 @@ public class MainActivity3_mantenimiento_usuario extends AppCompatActivity {
         btn_menu_reporte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_menu_reporte = new Intent(MainActivity3_mantenimiento_usuario.this, MainActivity4_add_reporte.class);
+                Intent intent_menu_reporte = new Intent(Mantenimiento_usuario.this, Add_reporte.class);
                 startActivity(intent_menu_reporte);
             }
         });
