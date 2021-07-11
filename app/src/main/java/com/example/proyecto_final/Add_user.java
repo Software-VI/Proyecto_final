@@ -29,7 +29,7 @@ public class Add_user extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity4_add_user);
+        setContentView(R.layout.activity_add_user);
 
         et_cod_unidad = findViewById(R.id.edt_cod_unidad);
         et_username = findViewById(R.id.edt_username);

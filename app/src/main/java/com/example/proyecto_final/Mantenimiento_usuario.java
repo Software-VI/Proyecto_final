@@ -14,7 +14,7 @@ public class Mantenimiento_usuario extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity3_mantenimiento_usuario);
+        setContentView(R.layout.activity_mantenimiento_usuario);
 
         btn_volver_mantenimiento_usuario = findViewById(R.id.btn_volver_mantenimiento);
         btn_add_ciudadano = findViewById(R.id.btn_agregar_ciudadano_);

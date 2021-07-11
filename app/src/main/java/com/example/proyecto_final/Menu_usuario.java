@@ -14,7 +14,7 @@ public class Menu_usuario extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity2_menu_usuario);
+        setContentView(R.layout.activity_menu_usuario);
 
         btn_mantenimiento = findViewById(R.id.btn_mantenimiento_touser);
         btn_logout_usuario = findViewById(R.id.btn_salir_usuario);

@@ -15,7 +15,7 @@ public class Consulta_usuario extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity3_consulta_usuario);
+        setContentView(R.layout.activity_consulta_usuario);
 
         btn_backto_consulta = findViewById(R.id.btn_volver_consulta);
         btn_consultar = (Button)findViewById(R.id.btn_consulta_caso_ciudadano);

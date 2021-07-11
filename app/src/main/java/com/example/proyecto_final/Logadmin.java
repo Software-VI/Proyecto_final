@@ -17,7 +17,7 @@ public class Logadmin<DBHelper> extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.logadmin);
+        setContentView(R.layout.activity_logadmin);
 
         btn_login_admin = findViewById(R.id.btn_login_admin);
         btn_tomain_admin = findViewById(R.id.btn_tomain_admin);

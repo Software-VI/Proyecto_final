@@ -14,7 +14,7 @@ public class Menu_admin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity3_menu_admin);
+        setContentView(R.layout.activity_menu_admin);
 
         btn_salir_admin = findViewById(R.id.btn_salir_admin);
         btn_consulta = findViewById(R.id.btn_consultar_usuario_admin_to_dialog);
