@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         progreso.show();
         btn_login_user.setVisibility(View.GONE);
 
-        String URL = "http://192.168.0.7/appCasos/login.php";
+        String URL = "http://192.168.0.112:8012/appCasos/login.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override

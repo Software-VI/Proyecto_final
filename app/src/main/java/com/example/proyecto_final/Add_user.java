@@ -1,7 +1,6 @@
 package com.example.proyecto_final;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +19,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -34,6 +34,7 @@ public class Add_user extends AppCompatActivity {
     ProgressDialog progreso;
     RequestQueue queue;
     JsonObjectRequest request;
+    private String aux;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +54,12 @@ public class Add_user extends AppCompatActivity {
         btn_add = (Button)findViewById(R.id.btn_add_usuario);
         btn_consultar = (Button)findViewById(R.id.btn_buscar_usuario);
         btn_update = (Button)findViewById(R.id.btn_modificar_usuario);
+        btn_delete = (Button)findViewById(R.id.btn_eliminar_usuario);
 
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                webServiceRagistarUsuario();
+                webServiceRegistarUsuario();
             }
         });
 
@@ -95,7 +97,7 @@ public class Add_user extends AppCompatActivity {
         progreso.setMessage("Actualizando datos...");
         progreso.show();
 
-        String url = "http://192.168.0.7/appCasos/consulta.php";
+        String url = "http://192.168.0.112:8012/appCasos/update_usuario.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -104,23 +106,22 @@ public class Add_user extends AppCompatActivity {
                 btn_update.setVisibility(View.VISIBLE);
                 btn_add.setVisibility(View.VISIBLE);
                 btn_delete.setVisibility(View.VISIBLE);
+                progreso.hide();
+                String respuesta = "";
+                JSONObject jsonObject = null;
                 try {
-                    progreso.hide();
-                    JSONObject jsonObject = new JSONObject(response);
-                    String success = jsonObject.getString("success");
-
-                    if (success.equals("1")){
-                        Toast.makeText(Add_user.this, "¡Datos Actualizados!", Toast.LENGTH_SHORT).show();
-                        Intent login = new Intent(Add_user.this, Menu_usuario.class);
-                        startActivity(login);
-
-                    }else {
-                        Toast.makeText(Add_user.this, "Error, Datos no Actualizados", Toast.LENGTH_SHORT).show();
-                    }
+                    jsonObject = new JSONObject(response);
+                    respuesta = jsonObject.getString("res");
                 } catch (JSONException e) {
-                    progreso.hide();
                     e.printStackTrace();
-                    Toast.makeText(Add_user.this, "Error, Datos no Actualizados"+e.toString(), Toast.LENGTH_SHORT).show();
+                }
+
+
+                if (respuesta.equals("success")){
+                    Toast.makeText(Add_user.this, "¡Datos Actualizados!", Toast.LENGTH_SHORT).show();
+
+                }else {
+                    Toast.makeText(Add_user.this, "Datos no Actualizados" + response, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -140,15 +141,27 @@ public class Add_user extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("cod_unidad", et_cod_unidad.getText().toString());
-                params.put("usuario", et_username.getText().toString());
-                params.put("nombre", et_nombre.getText().toString());
-                params.put("apellido", et_apellido.getText().toString());
-                params.put("password", et_password.getText().toString());
-                params.put("email", et_email.getText().toString());
-                params.put("telefono", et_telefono.getText().toString());
-                params.put("rango", et_rango.getText().toString());
-                return params;
+                //params.put("type", "0");
+                if (et_password.getText().toString().equals(aux)) {
+                    params.put("cod_unidad", et_cod_unidad.getText().toString());
+                    params.put("usuario", et_username.getText().toString());
+                    params.put("nombre", et_nombre.getText().toString());
+                    params.put("apellido", et_apellido.getText().toString());
+                    params.put("email", et_email.getText().toString());
+                    params.put("telefono", et_telefono.getText().toString());
+                    params.put("rango", et_rango.getText().toString());
+                    return params;
+                }else {
+                    params.put("cod_unidad", et_cod_unidad.getText().toString());
+                    params.put("usuario", et_username.getText().toString());
+                    params.put("nombre", et_nombre.getText().toString());
+                    params.put("apellido", et_apellido.getText().toString());
+                    params.put("password", et_password.getText().toString());
+                    params.put("email", et_email.getText().toString());
+                    params.put("telefono", et_telefono.getText().toString());
+                    params.put("rango", et_rango.getText().toString());
+                    return params;
+                }
             }
         };
 
@@ -162,8 +175,9 @@ public class Add_user extends AppCompatActivity {
         progreso = new ProgressDialog(this);
         progreso.setMessage("Buscando...");
         progreso.show();
+        String cod = et_cod_unidad.getText().toString();
 
-        String url = "http://192.168.0.7/appCasos/consulta.php?type=0&cod_unidad="+et_cod_unidad.getText().toString();
+        String url = "http://192.168.0.112:8012/appCasos/consulta.php?type=0&cod_unidad="+cod;
 
         request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -174,19 +188,22 @@ public class Add_user extends AppCompatActivity {
                 btn_delete.setVisibility(View.VISIBLE);
                 progreso.hide();
                 Toast.makeText(Add_user.this, "Usuario Encontrado", Toast.LENGTH_SHORT).show();
-
                 try {
-                    et_username.setText(response.getString("usuario"));
-                    et_nombre.setText(response.getString("nombre"));
-                    et_apellido.setText(response.getString("apellido"));
-                    et_password.setText(response.getString("password"));
-                    et_email.setText(response.getString("email"));
-                    et_telefono.setText(response.getString("telefono"));
-                    et_rango.setText(response.getString("rango"));
+                    JSONArray jsonArray = response.getJSONArray("set");
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+                    et_username.setText(jsonObject.getString("usuario"));
+                    et_nombre.setText(jsonObject.getString("nombre"));
+                    et_apellido.setText(jsonObject.getString("apellido"));
+                    et_password.setText(jsonObject.getString("password"));
+                    aux = jsonObject.getString("password");
+                    et_email.setText(jsonObject.getString("email"));
+                    et_telefono.setText(jsonObject.getString("telefono"));
+                    et_rango.setText(jsonObject.getString("rango"));
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Toast.makeText(Add_user.this, e.toString(), Toast.LENGTH_SHORT).show();
                 }
-
             }
         }, new Response.ErrorListener() {
             @Override
@@ -196,20 +213,21 @@ public class Add_user extends AppCompatActivity {
                 btn_add.setVisibility(View.VISIBLE);
                 btn_delete.setVisibility(View.VISIBLE);
                 progreso.hide();
+                et_cod_unidad.setText("");
                 Toast.makeText(Add_user.this, "Usuario No Encontrado\n"+error.toString(), Toast.LENGTH_SHORT).show();
         }
     });
         queue.add(request);
     }
 
-    private void webServiceRagistarUsuario() {
+    private void webServiceRegistarUsuario() {
         btn_add.setVisibility(View.GONE);
         btn_consultar.setVisibility(View.GONE);
         progreso = new ProgressDialog(this);
         progreso.setMessage("Registrando...");
         progreso.show();
 
-        String url = "http://192.168.0.7/appCasos/Registro_usuario.php?cod_unidad="+ et_cod_unidad.getText().toString()+
+        String url = "http://192.168.0.112:8012/appCasos/Registro_usuario.php?cod_unidad="+ et_cod_unidad.getText().toString()+
                 "&usuario="+et_username.getText().toString()+
                 "&nombre="+et_nombre.getText().toString()+
                 "&apellido="+et_apellido.getText().toString()+

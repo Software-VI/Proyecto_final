@@ -112,7 +112,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 android:layout_marginTop="10dp"
-                android:hint="Contrase;a"
+                android:hint="Contraseña"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:background="@color/white"
