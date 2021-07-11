@@ -122,7 +122,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#2E4A8A"
-                android:onClick="Consultar_C"
                 android:text="consultar ciudadano"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
