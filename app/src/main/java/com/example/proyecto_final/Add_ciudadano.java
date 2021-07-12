@@ -95,7 +95,7 @@ public class Add_ciudadano extends AppCompatActivity {
                 btn_registrar.setVisibility(View.VISIBLE);
                 progreso.hide();
                 String respuesta = "";
-                JSONObject jsonObject = null;
+                JSONObject jsonObject;
                 try {
                     jsonObject = new JSONObject(response);
                     respuesta = jsonObject.getString("res");
@@ -133,7 +133,7 @@ public class Add_ciudadano extends AppCompatActivity {
                 return params;
             }
         };
-        queue.add(request);
+        queue.add(stringRequest);
     }
 
     private void webServiceBuscarCiudadano() {
