@@ -1,5 +1,6 @@
 package com.example.proyecto_final;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -32,7 +33,7 @@ public class Menu_admin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                     Intent intent_consulta = new Intent(Menu_admin.this, Add_user.class);
-                    intent_consulta.putExtra("previo", "admin");
+                    intent_consulta.putExtra("previo", 0);
                     startActivity(intent_consulta);
                 }
         });
@@ -41,7 +42,6 @@ public class Menu_admin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent_add_tipo_reporte = new Intent(Menu_admin.this, Add_tipo_reporte.class);
-                intent_add_tipo_reporte.putExtra("previo", "admin");
                 startActivity(intent_add_tipo_reporte);
             }
         });

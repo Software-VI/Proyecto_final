@@ -222,4 +222,9 @@ public class Add_tipo_reporte extends AppCompatActivity {
         queue.add(request);
     }
 
+    public void atras(View view){
+        Intent i = new Intent(Add_tipo_reporte.this, Menu_admin.class);
+        startActivity(i);
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.example.proyecto_final;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,6 +36,7 @@ public class Add_user extends AppCompatActivity {
     RequestQueue queue;
     JsonObjectRequest request;
     private String aux;
+    Intent i = getIntent();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -264,5 +266,9 @@ public class Add_user extends AppCompatActivity {
             }
         });
         queue.add(request);
+    }
+
+    public void atrasAddUser(View view){
+        Intent i = new Intent(Add_user.this, Menu_admin.class);
     }
 }
