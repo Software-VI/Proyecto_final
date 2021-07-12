@@ -27,5 +27,6 @@ public class Add_reporte extends AppCompatActivity {
 
     public void atrasAddReporte(View view) {
         Intent i = new Intent(Add_reporte.this, Menu_usuario.class);
+        startActivity(i);
     }
 }

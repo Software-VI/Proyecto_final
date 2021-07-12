@@ -270,5 +270,6 @@ public class Add_user extends AppCompatActivity {
 
     public void atrasAddUser(View view){
         Intent i = new Intent(Add_user.this, Menu_admin.class);
+        startActivity(i);
     }
 }

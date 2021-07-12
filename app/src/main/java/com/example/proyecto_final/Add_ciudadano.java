@@ -212,5 +212,6 @@ public class Add_ciudadano extends AppCompatActivity {
 
     public void atrasAddCiudadano(View view) {
         Intent i = new Intent(Add_ciudadano.this, Menu_usuario.class);
+        startActivity(i);
     }
 }
