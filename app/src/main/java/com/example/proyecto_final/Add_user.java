@@ -1,7 +1,11 @@
 package com.example.proyecto_final;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -31,12 +36,11 @@ import java.util.Map;
 public class Add_user extends AppCompatActivity {
 
     private EditText et_cod_unidad, et_username, et_nombre, et_apellido, et_password, et_email, et_telefono, et_rango;
-    Button btn_add, btn_delete, btn_consultar, btn_update;
+    Button btn_add, btn_llamada, btn_consultar, btn_update;
     ProgressDialog progreso;
     RequestQueue queue;
     JsonObjectRequest request;
     private String aux;
-    Intent i = getIntent();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +60,17 @@ public class Add_user extends AppCompatActivity {
         btn_add = (Button)findViewById(R.id.btn_add_usuario);
         btn_consultar = (Button)findViewById(R.id.btn_buscar_usuario);
         btn_update = (Button)findViewById(R.id.btn_modificar_usuario);
-        btn_delete = (Button)findViewById(R.id.btn_eliminar_usuario);
+        btn_llamada = (Button)findViewById(R.id.btn_llamar);
+
+        btn_llamada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String telefono = et_telefono.getText().toString();
+                Intent i = new Intent(Intent.ACTION_DIAL);
+                i.setData(Uri.parse("tel:"+telefono));
+                startActivity(i);
+            }
+        });
 
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +108,7 @@ public class Add_user extends AppCompatActivity {
         btn_consultar.setVisibility(View.GONE);
         btn_update.setVisibility(View.GONE);
         btn_add.setVisibility(View.GONE);
-        btn_delete.setVisibility(View.GONE);
+        btn_llamada.setVisibility(View.GONE);
         progreso = new ProgressDialog(this);
         progreso.setMessage("Actualizando datos...");
         progreso.show();
@@ -107,7 +121,7 @@ public class Add_user extends AppCompatActivity {
                 btn_consultar.setVisibility(View.VISIBLE);
                 btn_update.setVisibility(View.VISIBLE);
                 btn_add.setVisibility(View.VISIBLE);
-                btn_delete.setVisibility(View.VISIBLE);
+                btn_llamada.setVisibility(View.VISIBLE);
                 progreso.hide();
                 String respuesta = "";
                 JSONObject jsonObject = null;
@@ -134,7 +148,7 @@ public class Add_user extends AppCompatActivity {
                 btn_consultar.setVisibility(View.VISIBLE);
                 btn_update.setVisibility(View.VISIBLE);
                 btn_add.setVisibility(View.VISIBLE);
-                btn_delete.setVisibility(View.VISIBLE);
+                btn_llamada.setVisibility(View.VISIBLE);
                 Toast.makeText(Add_user.this, "ERROR 0:"+error.toString(), Toast.LENGTH_SHORT).show();
 
             }
@@ -187,7 +201,7 @@ public class Add_user extends AppCompatActivity {
                 btn_consultar.setVisibility(View.VISIBLE);
                 btn_update.setVisibility(View.VISIBLE);
                 btn_add.setVisibility(View.VISIBLE);
-                btn_delete.setVisibility(View.VISIBLE);
+                btn_llamada.setVisibility(View.VISIBLE);
                 progreso.hide();
                 Toast.makeText(Add_user.this, "Usuario Encontrado", Toast.LENGTH_SHORT).show();
                 try {
@@ -213,7 +227,7 @@ public class Add_user extends AppCompatActivity {
                 btn_consultar.setVisibility(View.VISIBLE);
                 btn_update.setVisibility(View.VISIBLE);
                 btn_add.setVisibility(View.VISIBLE);
-                btn_delete.setVisibility(View.VISIBLE);
+                btn_llamada.setVisibility(View.VISIBLE);
                 progreso.hide();
                 et_cod_unidad.setText("");
                 Toast.makeText(Add_user.this, "Usuario No Encontrado\n"+error.toString(), Toast.LENGTH_SHORT).show();

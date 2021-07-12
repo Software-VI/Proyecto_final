@@ -209,11 +209,11 @@
                 app:layout_constraintTop_toBottomOf="@id/btn_buscar_usuario" />
 
             <Button
-                android:id="@+id/btn_eliminar_usuario"
+                android:id="@+id/btn_llamar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#2E4A8A"
-                android:text="Eliminar usuario"
+                android:text="Llamar"
                 android:visibility="gone"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -223,7 +223,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/btn_eliminar_usuario"
+                app:layout_constraintTop_toBottomOf="@id/btn_llamar"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 android:layout_marginTop="20dp"
