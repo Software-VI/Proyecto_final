@@ -24,6 +24,7 @@ public class Menu_usuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intento_mantt_user  = new Intent(Menu_usuario.this, Mantenimiento_usuario.class);
+                intento_mantt_user.putExtra("previo", "usuario");
                 startActivity(intento_mantt_user);
             }
         });
@@ -40,6 +41,7 @@ public class Menu_usuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent_consulta = new Intent(Menu_usuario.this, Consulta_usuario.class);
+                intent_consulta.putExtra("previo", "usuario");
                 startActivity(intent_consulta);
             }
         });

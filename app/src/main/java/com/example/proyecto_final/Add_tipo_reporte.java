@@ -30,7 +30,7 @@ import java.util.Map;
 public class Add_tipo_reporte extends AppCompatActivity {
 
     private EditText et_cod_tipo_reporte, et_descripcion;
-    Button btn_add, btn_volver, btn_consultar, btn_delete, btn_update;
+    Button btn_add, btn_volver, btn_consultar, btn_update;
     ProgressDialog progreso;
     RequestQueue queue;
     JsonObjectRequest request;
@@ -45,7 +45,6 @@ public class Add_tipo_reporte extends AppCompatActivity {
         btn_add = findViewById(R.id.btn_add_tipo_reporte);
         btn_consultar = findViewById(R.id.btn_consultar_tipo_reporte);
         btn_update = findViewById(R.id.btn_editar_tipo_reporte);
-        btn_delete  = findViewById(R.id.btn_eliminar_tipo_reporte);
 
         queue = Volley.newRequestQueue(this);
 
@@ -80,19 +79,17 @@ public class Add_tipo_reporte extends AppCompatActivity {
         btn_consultar.setVisibility(View.GONE);
         btn_update.setVisibility(View.GONE);
         btn_add.setVisibility(View.GONE);
-        btn_delete.setVisibility(View.GONE);
         progreso = new ProgressDialog(this);
         progreso.setMessage("Actualizando datos...");
         progreso.show();
 
-        String url = "http://192.168.0.7/appCasos/update_tipo_reporte.php";
+        String url = "http://192.168.0.112:8012/appCasos/update_tipo_reporte.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 btn_consultar.setVisibility(View.VISIBLE);
                 btn_update.setVisibility(View.VISIBLE);
                 btn_add.setVisibility(View.VISIBLE);
-                btn_delete.setVisibility(View.VISIBLE);
                 progreso.hide();
                 String respuesta = "";
                 JSONObject jsonObject = null;
@@ -121,7 +118,6 @@ public class Add_tipo_reporte extends AppCompatActivity {
                 btn_consultar.setVisibility(View.VISIBLE);
                 btn_update.setVisibility(View.VISIBLE);
                 btn_add.setVisibility(View.VISIBLE);
-                btn_delete.setVisibility(View.VISIBLE);
                 Toast.makeText(Add_tipo_reporte.this, "ERROR 0:"+error.toString(), Toast.LENGTH_SHORT).show();
 
             }
@@ -130,19 +126,9 @@ public class Add_tipo_reporte extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                //params.put("type", "0");
-                //que pedo XDDDDDD aux de auxilio XDDD
-                if (et_cod_tipo_reporte.getText().toString().equals(aux)) {
-                    params.put("cod_tipo_reporte", et_cod_tipo_reporte.getText().toString());
-                    params.put("descripcion", et_descripcion.getText().toString());
-
-                    return params;
-                }else {
-                    params.put("cod_tipo_reporte", et_cod_tipo_reporte.getText().toString());
-                    params.put("descripcion", et_descripcion.getText().toString());
-
-                    return params;
-                }
+                params.put("cod_tipo_reporte", et_cod_tipo_reporte.getText().toString());
+                params.put("descripcion", et_descripcion.getText().toString());
+                return params;
             }
         };
 
@@ -159,7 +145,7 @@ public class Add_tipo_reporte extends AppCompatActivity {
 
         String cod_tipo_reporte = et_cod_tipo_reporte.getText().toString();
 
-        String url = "http://192.168.0.7/appCasos/consulta.php?type=2&cod_tipo_reporte="+cod_tipo_reporte;
+        String url = "http://192.168.0.112:8012/appCasos/consulta.php?type=2&cod_tipo_reporte="+cod_tipo_reporte;
 
         request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -167,7 +153,6 @@ public class Add_tipo_reporte extends AppCompatActivity {
                 btn_consultar.setVisibility(View.VISIBLE);
                 btn_update.setVisibility(View.VISIBLE);
                 btn_add.setVisibility(View.VISIBLE);
-                btn_delete.setVisibility(View.VISIBLE);
                 progreso.hide();
                 Toast.makeText(Add_tipo_reporte.this, "Tipo Reporte Encontrado", Toast.LENGTH_SHORT).show();
 
@@ -176,8 +161,8 @@ public class Add_tipo_reporte extends AppCompatActivity {
                     JSONArray jsonArray = response.getJSONArray("set");
                     JSONObject jsonObject = jsonArray.getJSONObject(0);
 
-                    et_cod_tipo_reporte.setText(jsonObject.getString("usuario"));
-                    et_descripcion.setText(jsonObject.getString("nombre"));
+                    et_cod_tipo_reporte.setText(jsonObject.getString("cod_tipo_reporte"));
+                    et_descripcion.setText(jsonObject.getString("descripcion"));
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -192,7 +177,6 @@ public class Add_tipo_reporte extends AppCompatActivity {
                 btn_consultar.setVisibility(View.VISIBLE);
                 btn_update.setVisibility(View.VISIBLE);
                 btn_add.setVisibility(View.VISIBLE);
-                btn_delete.setVisibility(View.VISIBLE);
                 progreso.hide();
 
                 et_cod_tipo_reporte.setText("");
@@ -204,12 +188,13 @@ public class Add_tipo_reporte extends AppCompatActivity {
 
 
     private void webServiceRegistrarTipoReporte(){
-
+        btn_add.setVisibility(View.GONE);
+        btn_consultar.setVisibility(View.GONE);
         progreso = new ProgressDialog(this);
         progreso.setMessage("Registrando...");
         progreso.show();
 
-        String url = "http://192.168.0.7/appCasos/Registro_tipo_reporte.php?cod_tipo_reporte="+ et_cod_tipo_reporte.getText().toString()+
+        String url = "http://192.168.0.112:8012/appCasos/Registro_tipo_reporte.php?cod_tipo_reporte="+ et_cod_tipo_reporte.getText().toString()+
                 "&descripcion="+et_descripcion.getText().toString();
 
         url.replace(" ", "%20");

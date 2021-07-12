@@ -31,20 +31,18 @@ public class Menu_admin extends AppCompatActivity {
         btn_consulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                     Intent intent_consulta = new Intent(Menu_admin.this, Add_user.class);
+                    intent_consulta.putExtra("previo", "admin");
                     startActivity(intent_consulta);
-
                 }
-
         });
 
         btn_add_tipo_reporte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent_add_tipo_reporte = new Intent(Menu_admin.this, Add_tipo_reporte.class);
+                intent_add_tipo_reporte.putExtra("previo", "admin");
                 startActivity(intent_add_tipo_reporte);
-
             }
         });
     }
