@@ -1,6 +1,7 @@
 package com.example.proyecto_final;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -207,5 +208,9 @@ public class Add_ciudadano extends AppCompatActivity {
             }
         });
         queue.add(request);
+    }
+
+    public void atrasAddCiudadano(View view) {
+        Intent i = new Intent(Add_ciudadano.this, Menu_usuario.class);
     }
 }

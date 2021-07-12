@@ -1,6 +1,8 @@
 package com.example.proyecto_final;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,4 +24,8 @@ public class Add_reporte extends AppCompatActivity {
         et_activo = findViewById(R.id.edt_activo);
 
            }
+
+    public void atrasAddReporte(View view) {
+        Intent i = new Intent(Add_reporte.this, Menu_usuario.class);
+    }
 }
