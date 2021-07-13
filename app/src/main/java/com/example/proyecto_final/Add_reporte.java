@@ -91,12 +91,12 @@ public class Add_reporte extends AppCompatActivity {
         btn_consultar.setVisibility(View.GONE);
         btn_update.setVisibility(View.GONE);
         btn_add.setVisibility(View.GONE);
-        btn_llamada.setVisibility(View.GONE);
+
         progreso = new ProgressDialog(this);
         progreso.setMessage("Actualizando datos...");
         progreso.show();
 
-        String url = "http://192.168.0.112:8012/appCasos/update_reporte.php";
+        String url = "http://192.168.0.7/appCasos/update_reporte.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -104,7 +104,7 @@ public class Add_reporte extends AppCompatActivity {
                 btn_consultar.setVisibility(View.VISIBLE);
                 btn_update.setVisibility(View.VISIBLE);
                 btn_add.setVisibility(View.VISIBLE);
-                btn_llamada.setVisibility(View.VISIBLE);
+
                 progreso.hide();
                 String respuesta = "";
                 JSONObject jsonObject = null;
@@ -165,7 +165,7 @@ public class Add_reporte extends AppCompatActivity {
         progreso.show();
         String cod = et_cod_reporte.getText().toString();
 
-        String url = "http://192.168.0.112:8012/appCasos/consulta.php?type=3&cod_reporte="+cod;
+        String url = "http://192.168.0.7/appCasos/consulta.php?type=3&cod_reporte="+cod;
 
         request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -173,7 +173,7 @@ public class Add_reporte extends AppCompatActivity {
                 btn_consultar.setVisibility(View.VISIBLE);
                 btn_update.setVisibility(View.VISIBLE);
                 btn_add.setVisibility(View.VISIBLE);
-                btn_llamada.setVisibility(View.VISIBLE);
+
                 progreso.hide();
                 Toast.makeText(Add_reporte.this, "Reporte Encontrado", Toast.LENGTH_SHORT).show();
                 try {
@@ -197,7 +197,6 @@ public class Add_reporte extends AppCompatActivity {
                 btn_consultar.setVisibility(View.VISIBLE);
                 btn_update.setVisibility(View.VISIBLE);
                 btn_add.setVisibility(View.VISIBLE);
-                btn_llamada.setVisibility(View.VISIBLE);
                 progreso.hide();
                 et_cod_reporte.setText("");
                 Toast.makeText(Add_reporte.this, "Reporte No Encontrado\n"+error.toString(), Toast.LENGTH_SHORT).show();
@@ -214,7 +213,7 @@ public class Add_reporte extends AppCompatActivity {
         progreso.setMessage("Registrando...");
         progreso.show();
 
-        String url = "http://192.168.0.112:8012/appCasos/Registro_reporte.php?cod_reporte="+ et_cod_reporte.getText().toString()+
+        String url = "http://192.168.0.7/appCasos/Registro_reporte.php?cod_reporte="+ et_cod_reporte.getText().toString()+
                 "&cedula="+et_cedula.getText().toString()+
                 "&fecha="+et_fecha.getText().toString()+
                 "&tipo_reporte="+et_tipo_reporte.getText().toString()+
